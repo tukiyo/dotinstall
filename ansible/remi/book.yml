@@ -1,0 +1,13 @@
+---
+- hosts: all
+  user: vagrant
+  sudo: yes
+  tasks:
+  - name: install remi repository.
+    yum: name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm state=present
+
+  - name: disable epel repository.
+    command: yum-config-manager --disable epel
+
+  - name: disable remi repository.
+    command: yum-config-manager --disable remi
