@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  sudo: yes
+  roles:
+    - role: vim
+    - role: os
+    - role: yum_update
+    - role: httpd
+    - role: repos
+    - role: php

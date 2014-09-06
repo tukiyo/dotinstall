@@ -1,0 +1,25 @@
+---
+- name: install php5.6
+  yum: pkg={{ item }} state=installed enablerepo=remi
+  with_items:
+    - php56
+    - php56-php-devel
+    - php56-php-mysqlnd
+    - php56-php-mbstring
+    - php56-php-gd
+
+#- name: Check php.ini.orig
+#  stat: path="/etc/php.ini.orig"
+#  register: php_ini_patch
+
+#- action: template src="templates/php.ini" dest="/etc/php.ini"
+#  when: not php_ini_patch.stat.exists
+
+- name: generate {{ php_log }}
+  command: touch {{ php_log }}
+
+- name: chmod {{ php_log }}
+  file: path={{ php_log }} owner=apache group=apache mode=0644 state=file
+
+- name: httpdの再起動
+  service: name=httpd state=restarted

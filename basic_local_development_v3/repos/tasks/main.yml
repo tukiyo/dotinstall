@@ -1,0 +1,6 @@
+---
+- yum: name={{ remi_url }}/remi-release-6.rpm state=present
+  when: ansible_distribution_version.split('.')[0]|int == 6
+
+- yum: name={{ remi_url }}/remi-release-7.rpm state=present
+  when: ansible_distribution_version.split('.')[0]|int == 7

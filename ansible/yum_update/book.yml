@@ -1,7 +1,0 @@
----
-- hosts: all
-  user: vagrant
-  sudo: yes
-  tasks:
-  - name: upgrade all packages
-    yum: name=* state=latest
