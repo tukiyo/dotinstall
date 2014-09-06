@@ -8,3 +8,5 @@
     - role: httpd
     - role: repos
     - role: php
+    - role: mariadb
+    - role: pgdg

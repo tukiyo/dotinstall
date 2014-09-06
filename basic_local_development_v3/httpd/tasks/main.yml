@@ -1,8 +1,8 @@
 ---
-- name: 基本的なパッケージをインストール
+- name: install httpd
   yum: pkg={{ item }} state=installed
   with_items:
     - httpd
 
-- name: httpdの起動
+- name: start httpd
   service: name=httpd state=started enabled=yes
