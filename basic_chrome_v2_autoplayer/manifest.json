@@ -1,0 +1,12 @@
+{
+	"name": "dotinstall player enhance extention",
+	"version": "1.0",
+	"manifest_version": 2,
+
+	"permissions": [ "http://dotinstall.com/lessons/*" ],
+
+	"content_scripts": [ {
+		"matches": ["http://dotinstall.com/lessons/*"],
+		"js": ["script.js"]
+	} ]
+}
