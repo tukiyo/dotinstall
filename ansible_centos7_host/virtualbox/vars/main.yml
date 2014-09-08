@@ -1,0 +1,5 @@
+---
+vbox_repo: http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+vbox_version: 4.3
+vagrant_version: 1.6.5
+vagrant_rpm: http://dl.bintray.com/mitchellh/vagrant/vagrant_{{ vagrant_version }}_x86_64.rpm

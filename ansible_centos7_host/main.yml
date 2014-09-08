@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  sudo: yes
+  roles:
+    - role: packages
+    - role: os
+    - role: yum_update
+    - role: virtualbox

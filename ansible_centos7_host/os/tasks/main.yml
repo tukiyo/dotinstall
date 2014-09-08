@@ -1,0 +1,6 @@
+---
+- name: CentOS6,7の名前解決高速化
+  lineinfile: dest=/etc/resolv.conf line='options single-request-reopen'
+
+- name: sudo NOPASSWD
+  lineinfile: dest=/etc/sudoers line='{{nopasswd_line}}'

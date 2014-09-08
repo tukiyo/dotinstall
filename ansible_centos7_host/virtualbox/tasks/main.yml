@@ -1,0 +1,16 @@
+---
+# virtualbox
+- name: install virtualbox repository
+  get_url: url={{vbox_repo}} dest=/etc/yum.repos.d/
+
+- name: install virtualbox
+  yum: name=VirtualBox-{{vbox_version}} state=latest
+
+# vagrant
+- name: check vagrant is installed
+  stat: path="/usr/bin/vagrant"
+  register: result
+
+- name: install vagrant
+  yum: name={{vagrant_rpm}} state=present
+  when: not result.stat.exists

@@ -1,0 +1,2 @@
+---
+nopasswd_line: "vagrant  ALL=(ALL)       NOPASSWD: ALL"
