@@ -2,11 +2,10 @@
 - hosts: localhost
   sudo: yes
   roles:
-    - role: vim
+    - role: packages
     - role: os
     - role: yum_update
     - role: httpd
     - role: repos
     - role: php
     - role: mariadb
-    - role: pgdg

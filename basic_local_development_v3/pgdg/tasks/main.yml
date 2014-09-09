@@ -1,6 +1,0 @@
----
-- yum: name={{ pgdg_centos6_rpm }} state=present
-  when: ansible_distribution_version.split('.')[0]|int == 6
-
-- yum: name={{ pgdg_centos7_rpm }} state=present
-  when: ansible_distribution_version.split('.')[0]|int == 7
