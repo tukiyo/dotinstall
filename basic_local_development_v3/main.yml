@@ -9,3 +9,16 @@
     - role: repos
     - role: php
     - role: mariadb
+    - role: postgresql
+    - role: ruby
+
+- hosts: localhost
+  sudo: yes
+  sudo_user: postgres
+  roles:
+    - role: postgresql_account
+
+- hosts: localhost
+  roles:
+    - role: dot_files
+    - role: ruby_gems

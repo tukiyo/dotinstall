@@ -1,0 +1,10 @@
+---
+- name: install postgresql-server
+  yum: pkg=postgresql-server state=installed
+  notify:
+    - initdb
+    - start postgresql
+
+# postgresql_userモジュールを使用するために必要
+- name: install python-psycopg2
+  yum: pkg=python-psycopg2 state=installed

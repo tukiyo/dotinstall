@@ -19,9 +19,10 @@
   notify:
     - restart httpd
 
-#- name: Check php.ini.orig
-#  stat: path="/etc/php.ini.orig"
-#  register: php_ini_patch
-
-#- action: template src="templates/php.ini" dest="/etc/php.ini"
-#  when: not php_ini_patch.stat.exists
+- name: copy php_custom.ini
+  copy: >
+    src=php_custom.ini
+    dest=/etc/php.d/php_custom.ini
+    backup=yes
+  notify:
+    - restart httpd
