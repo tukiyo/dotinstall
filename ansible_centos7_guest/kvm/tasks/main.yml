@@ -1,0 +1,25 @@
+---
+- name: install kvm
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - kvm
+    - qemu
+    - qemu-kvm
+    - virt-manager
+    - qemu-kvm-tools
+    - libvirt
+- service: name=libvirtd state=started enabled=yes
+
+- name: install vncserver
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - tigervnc-server
+    - xmonad
+    - vlgothic-fonts
+- file: path=/root/.vnc/ state=directory
+- copy: >
+    src=xstartup
+    dest=/root/.vnc/xstartup
+    mode=0700
+- shell: echo password | vncpasswd -f > /root/.vnc/passwd
+- cron: name="start vncserver" special_time=reboot job="vncserver :1"

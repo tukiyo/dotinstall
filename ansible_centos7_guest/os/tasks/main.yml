@@ -1,0 +1,9 @@
+---
+- name: CentOS6,7の名前解決高速化
+  lineinfile: dest=/etc/resolv.conf line='options single-request-reopen'
+
+- name: kernelが更新されてvirtualbox guest addinsが使えなくなることの対策
+  lineinfile: dest=/etc/yum.conf line='exclude=kernel-[23]*'
+
+- name: set timezone Japan
+  file: src=/usr/share/zoneinfo/Japan dest=/etc/localtime state=link

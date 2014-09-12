@@ -1,0 +1,15 @@
+---
+- name: install packages
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - vim
+    - git
+    - tig
+    - ack
+    - telnet
+    - lm_sensors
+
+- name: uninstall packages
+  yum: pkg={{ item }} state=absent
+  with_items:
+    - acpid

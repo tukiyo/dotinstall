@@ -1,0 +1,3 @@
+---
+- name: copy .gemrc
+  copy: src=.gemrc dest=~/.gemrc

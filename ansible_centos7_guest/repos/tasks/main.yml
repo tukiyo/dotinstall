@@ -1,0 +1,14 @@
+---
+# remi repository
+- yum: name={{remi_rpm_centos6}} state=installed
+  when: ansible_distribution_version.split('.')[0]|int == 6
+
+- yum: name={{remi_rpm_centos7}} state=installed
+  when: ansible_distribution_version.split('.')[0]|int == 7
+
+# postgresql
+- yum: name={{pgdg_rpm_centos6}} state=installed
+  when: ansible_distribution_version.split('.')[0]|int == 6
+
+- yum: name={{pgdg_rpm_centos7}} state=installed
+  when: ansible_distribution_version.split('.')[0]|int == 7

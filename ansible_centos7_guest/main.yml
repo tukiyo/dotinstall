@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  sudo: yes
+  roles:
+    - role: packages
+    - role: os
+    - role: yum_update
+    - role: httpd
+    #- role: repos
+    - role: php
+    - role: mariadb
+    - role: postgresql
+    - role: ruby
+    - role: kvm
+    #- role: docker
+
+- hosts: localhost
+  sudo: yes
+  sudo_user: postgres
+  roles:
+    - role: postgresql_account
+
+- hosts: localhost
+  roles:
+    - role: dot_files
+    - role: ruby_gems

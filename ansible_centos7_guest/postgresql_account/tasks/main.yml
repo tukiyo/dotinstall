@@ -1,0 +1,11 @@
+---
+- name: create vagrant database
+  postgresql_db: >
+    name=vagrant
+    template='template0'
+
+- name: create vagrant user
+  postgresql_user: >
+    db=vagrant
+    name=vagrant
+    role_attr_flags=CREATEDB,LOGIN

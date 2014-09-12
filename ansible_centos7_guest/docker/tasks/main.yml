@@ -1,0 +1,10 @@
+---
+- name: install lxc
+  yum: pkg=lxc state=installed
+
+#- name: install docker-io
+#  yum: name=docker/files/docker-io-1.1.0-1.el7.centos.x86_64.rpm state=installed
+
+- service: name=docker state=started enabled=yes
+
+#- cron: name="start container" special_time=reboot job="docker start <ContainerId>"
