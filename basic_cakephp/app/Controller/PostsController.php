@@ -39,7 +39,6 @@ class PostsController extends AppController {
 		}
 	}
 	public function delete($id = null) {
-		$this->Post->id = $id;
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}

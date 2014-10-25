@@ -13,27 +13,12 @@ class CommentsController extends AppController {
 			}
 		}
 	}
-/*
-	public function edit($id = null) {
-		$this->Post->id = $id;
-		if ($this->request->is('get')) {
-			$this->request->data = $this->Post->read();
-		} else {
-			if ($this->Post->save($this->request->data)) {
-				$this->Session->setFlash('Success!');
-				$this->redirect(array('action'=>'index'));
-			} else {
-				$this->Session->setFlash('failed!');
-			}
-		}
-	}
 	public function delete($id = null) {
-		$this->Post->id = $id;
 		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
 		if ($this->request->is('ajax')) {
-			if ($this->Post->delete($id)) {
+			if ($this->Comment->delete($id)) {
 				$this->autoRender = false;
 				$this->autoLayout = false;
 				$response = array('id' => $id);
@@ -42,7 +27,6 @@ class CommentsController extends AppController {
 				exit();
 			}
 		}
-		$this->redirect(array('action'=>'index'));
+		$this->redirect(array('controller'=>'posts', 'action'=>'index'));
 	}
-*/
 }
