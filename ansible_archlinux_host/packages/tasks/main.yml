@@ -5,16 +5,22 @@
     - vim
     - git
     - tig
-    - zsh
     - ranger
-    - cronie
+    - screen
     - wget
     - w3m
     - unzip
+
+- name: install basic_packages_2
+  pacman: name={{ item }} state=present
+  with_items:
+    - fcron
     - docker
 
 - name: enable services
   service: name={{ item }} state=started enabled=yes
   with_items:
-    - cronie
+    - fcron
     - docker
+
+- shell: pacman -Scc
