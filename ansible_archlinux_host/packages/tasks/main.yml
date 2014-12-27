@@ -26,11 +26,8 @@
 
 - command: pacman -Scc
 
-
-- name: fig
-  stat: path=/usr/local/bin/fig
+- name: pip
+  stat: path=/usr/bin/pip
   register: result
-- shell: "curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-Linux-x86_64 > /usr/local/bin/fig"
-  when: not result.stat.exists
-- command: "chmod +x /usr/local/bin/fig"
+- shell: easy_install-2.7 pip
   when: not result.stat.exists
